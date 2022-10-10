@@ -6,12 +6,12 @@ public class Input {
     public int finalNumSys;
     public int number;
     public String numStr;
-    public String cc11 = "0123456789A";
-    public String cc12 = "0123456789AB";
-    public String cc13 = "0123456789ABC";
-    public String cc14 = "0123456789ABCD";
-    public String cc15 = "0123456789ABCDE";
-    public String cc16 = "0123456789ABCDF";
+    public String cc11 = "-0123456789A";
+    public String cc12 = "-0123456789AB";
+    public String cc13 = "-0123456789ABC";
+    public String cc14 = "-0123456789ABCD";
+    public String cc15 = "-0123456789ABCDE";
+    public String cc16 = "-0123456789ABCDEF";
     public void InputOrigin() {
         while (true) {
             System.out.print("Выберите исходную систему счисления: 2 - 16: -->");
@@ -69,7 +69,7 @@ public class Input {
                     if(Check()) {
                         int[] arr = new int[numStr.length()];
                         if ((int) numStr.charAt(0) == 45) minus = true;
-                        arr = addToString(arr);
+                        arr = addToString(arr, minus);
                         convers.Convers(originalNumSys, finalNumSys, 0, arr, minus);
                         break;
                     }
@@ -83,8 +83,12 @@ public class Input {
         }
     }
 
-    public int[] addToString(int[] arr){
+    public int[] addToString(int[] arr, boolean flag){
         for(int i = 0; i < numStr.length(); i++){
+            if(flag) {
+                i++;
+                flag = false;
+            }
             if( ((int)numStr.charAt(i)  >= 65 && (int)numStr.charAt(i)  <= 70) ){
                 switch((int)numStr.charAt(i) ){
                     case 65:
