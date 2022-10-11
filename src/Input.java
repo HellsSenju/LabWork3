@@ -14,11 +14,11 @@ public class Input {
     public String cc16 = "-0123456789ABCDEF";
     public void InputOrigin() {
         while (true) {
-            System.out.print("Выберите исходную систему счисления: 2 - 16: -->");
+            System.out.print("Original CC: 2 - 16: -->");
             try {
                 originalNumSys = scan.nextInt();
                 if(originalNumSys >= 2 && originalNumSys <= 16) break;
-                System.out.println("Недопустимая система счисления");
+                System.out.println("Error");
             } catch (Exception ex) {
                 System.out.println();
                 System.out.println(ex.getMessage());
@@ -28,11 +28,11 @@ public class Input {
     }
     public void InputFinal(){
         while(true){
-            System.out.print("Выберите конечную систему счисления: 2 - 16: -->");
+            System.out.print("Final CC: 2 - 16: -->");
             try{
                 finalNumSys = scan.nextInt();
                 if(finalNumSys >= 2 && finalNumSys <= 16) break;
-                System.out.println("Недопустимая система счисления");
+                System.out.println("Error");
             }catch (Exception ex){
                 System.out.println();
                 System.out.println(ex.getMessage());
@@ -43,7 +43,7 @@ public class Input {
     public void InputNumber(){
         boolean minus = false;
         while(true){
-            System.out.print("Введите число: -->");
+            System.out.print("Number: -->");
             if(originalNumSys < 11){
                 try{
                     number = scan.nextInt();
@@ -73,7 +73,7 @@ public class Input {
                         convers.Convers(originalNumSys, finalNumSys, 0, arr, minus);
                         break;
                     }
-                    System.out.println("Неверный символ");
+                    System.out.println("Error");
                 }catch (Exception ex){
                     System.out.println();
                     System.out.println(ex.getMessage());

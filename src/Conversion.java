@@ -19,20 +19,20 @@ public class Conversion {
         if(finalNumSys == 2) strightCode(result);
         if (minus) result += "-";
         result = reverse(result);
-        System.out.println("Результат: " + result);
+        System.out.println("Result: " + result);
     }
 
     public void strightCode(String scRez){
-        int plusFour = 0;
-        while(plusFour <= scRez.length()) plusFour += 4;
-        int ost = plusFour % scRez.length();
+        int plusEight = 8;
+        while(plusEight <= scRez.length()) plusEight += 8;
+        int ost = plusEight - scRez.length();
         if(minus){
             for(int i = 0; i < ost - 1; i++) scRez += "0";
             scRez += "1";
         }
         else for(int i = 0; i < ost; i++) scRez += "0";
         scRez = reverse(scRez);
-        System.out.println("Результат(ПК): " + scRez);
+        System.out.println("Result(strightCode): " + scRez);
     }
     public static String reverse(String str) {
         return new StringBuilder(str).reverse().toString();
